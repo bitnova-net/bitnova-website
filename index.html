@@ -90,19 +90,19 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">1+</div>
+                    <div class="stat-number" data-target="1+">0</div>
                     <div class="stat-label">Projects Completed</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">100%</div>
+                    <div class="stat-number" data-target="100%">0</div>
                     <div class="stat-label">Client Satisfaction</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">24/7</div>
+                    <div class="stat-number" data-target="24/7">24/7</div>
                     <div class="stat-label">Support Available</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">15+</div>
+                    <div class="stat-number" data-target="15+">0</div>
                     <div class="stat-label">Technologies</div>
                 </div>
             </div>
@@ -394,9 +394,59 @@
             });
         });
 
+        // Counter Animation Function
+        function animateCounter(element, target, duration = 2000) {
+            const startTime = performance.now();
+            const startValue = 0;
+            
+            // Check if target contains special characters
+            const hasPlus = target.includes('+');
+            const hasPercent = target.includes('%');
+            const hasSlash = target.includes('/');
+            
+            // Extract the numeric value
+            let numericTarget;
+            if (hasSlash) {
+                // For "24/7", just display it directly without animation
+                element.textContent = target;
+                return;
+            } else {
+                numericTarget = parseInt(target.replace(/[^0-9]/g, ''));
+            }
+            
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // LINEAR animation - no easing, constant speed
+                const current = Math.floor(progress * numericTarget);
+                
+                // Format the display value
+                let displayValue = current;
+                if (hasPercent) {
+                    displayValue = current + '%';
+                } else if (hasPlus) {
+                    displayValue = current + '+';
+                }
+                
+                element.textContent = displayValue;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = target; // Ensure final value is exact
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        // Flag to track if stats have been animated
+        let statsAnimated = false;
+
         // Smooth scroll animations with consistent timing
         const observerOptions = {
-            threshold: 0.1,
+            threshold: 0.2,
             rootMargin: '0px'
         };
 
@@ -407,6 +457,31 @@
                 }
             });
         }, observerOptions);
+
+        // Separate observer for stats section to animate all counters together
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    
+                    // Animate all stat numbers at once
+                    const statNumbers = document.querySelectorAll('.stat-number');
+                    statNumbers.forEach(numberElement => {
+                        const targetValue = numberElement.getAttribute('data-target');
+                        animateCounter(numberElement, targetValue);
+                    });
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px'
+        });
+
+        // Observe the stats section
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
 
         // Add animation classes
         const animateElements = document.querySelectorAll('.service-card, .stat-item, .process-step, .project-card, .contact-item, .about-text, .about-image');
@@ -459,11 +534,32 @@
                 }
             }
 
+            @keyframes floatUpDown {
+                0%, 100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+            
+            .hero-card.floating {
+                animation: floatUpDown 3s ease-in-out infinite;
+            }
+
             .service-card:hover, .stat-item:hover, .process-step:hover {
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             }
         `;
         document.head.appendChild(style);
+
+        // Add floating animation to hero card after initial animation
+        setTimeout(() => {
+            const heroCard = document.querySelector('.hero-card');
+            if (heroCard) {
+                heroCard.classList.add('floating');
+            }
+        }, 1100);
     </script>
 </body>
 </html>
