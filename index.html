@@ -1,56 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BitNova - Digital Solutions & IT Services</title>
+    
+    <!-- External Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/logo/bitnova-white-favicon.png">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+
+    <!-- ========================================
+         CURSOR
+    ========================================= -->
+
+    <div class="cursor"></div>
+
+    <!-- ========================================
+         NAVIGATION BAR
+    ========================================= -->
+    <nav class="navbar fixed-top">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
-                <a href="#" class="logo"><img src="img/logo/bitnova.png" alt="Logo" width="120px"></a>
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <img src="img/logo/bitnova.png" alt="Logo" width="120px" class="logo-light">
+                    <img src="img/logo/bitnova-white.png" alt="Logo" width="120px" class="logo-dark">
+                </a>
+                
+                <!-- Mobile Menu Toggle -->
                 <div class="menu-toggle" onclick="toggleMenu()">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
+                
+                <!-- Navigation Menu -->
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#home" onclick="closeMenu()">Home</a></li>
                     <li><a href="#services" onclick="closeMenu()">Services</a></li>
                     <li><a href="#about" onclick="closeMenu()">About</a></li>
                     <li><a href="#project" onclick="closeMenu()">Project</a></li>
                     <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-                    <li><a href="#contact" class="btn-primary text-white" onclick="closeMenu()">Get Started</a></li>
+                    <li><a href="#contact" class="btn-primary text-white" onclick="closeMenu()" style="transition: all 0.3s ease;">Get Started</a></li>
+                    <!-- Dark Mode Toggle Button -->
+                    <li>
+                        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ========================================
+         HERO SECTION
+    ========================================= -->
     <section class="hero" id="home">
+        <!-- Animated Gradient Background -->
+        <div class="hero-gradient"></div>
+        
         <div class="container">
             <div class="row align-items-center">
+                <!-- Hero Text Content -->
                 <div class="col-lg-6">
                     <div class="hero-content">
-                        <span class="hero-label"><i class="fas fa-rocket"></i> Welcome to BitNova</span>
+                        <span class="hero-label">
+                            <i class="fas fa-rocket"></i> Welcome to BitNova
+                        </span>
                         <h1>Digital Solutions That <span>Transform</span> Your Business</h1>
                         <p>We build powerful web applications, data platforms, and automated systems that drive growth and efficiency.</p>
+                        
+                        <!-- Hero CTA Buttons -->
                         <div class="hero-buttons">
                             <a href="#contact" class="btn-primary">Start a Project</a>
                             <a href="#services" class="btn-outline">Our Services</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                
+                <!-- Hero Feature Card -->
+                <div class="col-lg-6 mb-mobile-5">
                     <div class="hero-image">
-                        <div class="hero-card">
+                        <div class="hero-card floating">
                             <h3>Why Choose Us?</h3>
                             <ul class="feature-list">
                                 <li>
@@ -85,22 +128,31 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- ========================================
+         STATISTICS SECTION
+    ========================================= -->
     <section class="stats">
         <div class="container">
             <div class="stats-grid">
+                <!-- Stat Item: Projects -->
                 <div class="stat-item">
                     <div class="stat-number" data-target="1+">0</div>
                     <div class="stat-label">Projects Completed</div>
                 </div>
+                
+                <!-- Stat Item: Satisfaction -->
                 <div class="stat-item">
                     <div class="stat-number" data-target="100%">0</div>
                     <div class="stat-label">Client Satisfaction</div>
                 </div>
+                
+                <!-- Stat Item: Support -->
                 <div class="stat-item">
                     <div class="stat-number" data-target="24/7">24/7</div>
                     <div class="stat-label">Support Available</div>
                 </div>
+                
+                <!-- Stat Item: Technologies -->
                 <div class="stat-item">
                     <div class="stat-number" data-target="15+">0</div>
                     <div class="stat-label">Technologies</div>
@@ -109,51 +161,69 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- ========================================
+         SERVICES SECTION
+    ========================================= -->
     <section class="services" id="services">
         <div class="container">
+            <!-- Section Header -->
             <div class="section-header">
                 <div class="section-label">WHAT WE DO</div>
                 <h2 class="section-title">Our Services</h2>
                 <p class="section-desc">Comprehensive digital solutions tailored to your business needs</p>
             </div>
+            
+            <!-- Services Grid -->
             <div class="services-grid">
+                <!-- Service: Web Development -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-globe"></i></div>
                     <h3>Web Application Development</h3>
                     <p>Build fast, secure, and scalable web applications for your business with modern frameworks and best practices.</p>
                     <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
+                
+                <!-- Service: UI/UX Design -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-palette"></i></div>
                     <h3>UI/UX Design</h3>
                     <p>Craft beautiful, intuitive, and user-centered digital experiences that delight your customers.</p>
                     <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
+                
+                <!-- Service: Process Automation -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-cogs"></i></div>
                     <h3>Process Automation</h3>
                     <p>Simplify workflows and save time through smart automation that streamlines your operations.</p>
                     <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
+                
+                <!-- Service: BI Dashboards -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
                     <h3>Business Intelligence Dashboards</h3>
                     <p>Turn your data into real-time insights with interactive dashboards that drive better decisions.</p>
                     <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
+                
+                <!-- Service: Data Engineering -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-project-diagram"></i></div>
                     <h3>Data Engineering & ETL Solutions</h3>
                     <p>Streamline data flow with reliable and automated pipelines for efficient data processing.</p>
                     <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
+                
+                <!-- Service: AI Chatbots -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-robot"></i></div>
                     <h3>AI Chatbots & Intelligent Systems</h3>
                     <p>Enhance communication with AI-driven virtual assistants that understand your customers.</p>
                     <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
+                
+                <!-- Service: Deployment -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
                     <h3>System Deployment & CI/CD</h3>
@@ -164,26 +234,35 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ========================================
+         ABOUT SECTION
+    ========================================= -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
+                <!-- About Text Content -->
                 <div class="about-text">
                     <div class="section-label">ABOUT US</div>
                     <h2>Building Digital Excellence Since Day One</h2>
                     <p>At BitNova, we're passionate about creating digital solutions that make a real impact. Our team combines technical expertise with creative problem-solving to deliver applications that are not just functional, but exceptional.</p>
                     <p>We specialize in modern web technologies, data intelligence, and automation systems that help businesses scale and operate more efficiently.</p>
+                    
+                    <!-- Features List -->
                     <ul class="about-features">
                         <li>Expert team with proven track record</li>
                         <li>Modern technology stack and best practices</li>
                         <li>Agile development methodology</li>
                         <li>Comprehensive support and maintenance</li>
                     </ul>
+                    
                     <a href="#contact" class="btn-primary">Get in Touch</a>
                 </div>
-                <div class="about-image">
+                
+                <!-- Mission & Values Card -->
+                <div class="about-image floating">
                     <h3>Our Mission</h3>
                     <p>To empower businesses with innovative technology solutions that drive growth, efficiency, and competitive advantage in the digital age.</p>
+                    
                     <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
                         <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Our Values</h4>
                         <p style="opacity: 0.9;">Quality • Innovation • Integrity • Client Success</p>
@@ -193,18 +272,26 @@
         </div>
     </section>
 
-    <!-- Project Section -->
+    <!-- ========================================
+         PROJECT SHOWCASE SECTION
+    ========================================= -->
     <section class="project" id="project">
         <div class="container">
+            <!-- Section Header -->
             <div class="section-header">
                 <div class="section-label">OUR WORK</div>
                 <h2 class="section-title">Featured Project</h2>
                 <p class="section-desc">A showcase of our expertise and commitment to excellence</p>
             </div>
-            <div class="project-card">
+            
+            <!-- Project Card -->
+            <div class="project-card" style="transition: all 0.3s ease;">
+                <!-- Project Image -->
                 <div class="project-image" style="width: 100%; height: 100%; object-fit: cover;">
                     <img src="img/projects/spark.png" alt="spark" style="width: 100%; height: 100%; object-fit: cover; border-bottom: 1px solid rgba(255,255,255,0.2);">
                 </div>
+                
+                <!-- Project Details -->
                 <div class="project-content">
                     <span class="project-tag">Education Platform</span>
                     <h3>Spark Medical Academy</h3>
@@ -215,50 +302,70 @@
         </div>
     </section>
 
-    <!-- Process Section -->
+    <!-- ========================================
+         DEVELOPMENT PROCESS SECTION
+    ========================================= -->
     <section class="process">
         <div class="container">
+            <!-- Section Header -->
             <div class="section-header">
                 <div class="section-label">HOW WE WORK</div>
                 <h2 class="section-title">Our Software Development Process</h2>
                 <p class="section-desc">A proven methodology that delivers high-quality results with Agile practices</p>
             </div>
+            
+            <!-- Process Steps Grid -->
             <div class="process-grid">
+                <!-- Step 1: Requirements -->
                 <div class="process-step">
                     <div class="process-number">01</div>
                     <h3>Requirement Analysis</h3>
                     <p>Gathering business requirements, understanding user needs, and defining project scope.</p>
                 </div>
+                
+                <!-- Step 2: Planning -->
                 <div class="process-step">
                     <div class="process-number">02</div>
                     <h3>Planning & Roadmap</h3>
                     <p>Creating detailed project roadmap, defining milestones, timelines, and Agile sprints.</p>
                 </div>
+                
+                <!-- Step 3: Design -->
                 <div class="process-step">
                     <div class="process-number">03</div>
                     <h3>Design</h3>
                     <p>Designing UI/UX, system architecture, and data models to ensure scalability and usability.</p>
                 </div>
+                
+                <!-- Step 4: Development -->
                 <div class="process-step">
                     <div class="process-number">04</div>
                     <h3>Development (Agile)</h3>
                     <p>Implementing features in iterative sprints with continuous feedback and collaboration.</p>
                 </div>
+                
+                <!-- Step 5: Testing -->
                 <div class="process-step">
                     <div class="process-number">05</div>
                     <h3>Testing & QA</h3>
                     <p>Performing functional, integration, performance, and user acceptance testing.</p>
                 </div>
+                
+                <!-- Step 6: Deployment -->
                 <div class="process-step">
                     <div class="process-number">06</div>
                     <h3>Deployment</h3>
                     <p>Releasing the solution to production, ensuring smooth transition and environment setup.</p>
                 </div>
+                
+                <!-- Step 7: Maintenance -->
                 <div class="process-step">
                     <div class="process-number">07</div>
                     <h3>Maintenance & Support</h3>
                     <p>Ongoing monitoring, updates, bug fixes, and enhancements based on user feedback.</p>
                 </div>
+                
+                <!-- Step 8: Improvement -->
                 <div class="process-step">
                     <div class="process-number">08</div>
                     <h3>Continuous Improvement (Agile)</h3>
@@ -268,8 +375,9 @@
         </div>
     </section>
 
-
-    <!-- CTA Section -->
+    <!-- ========================================
+         CALL TO ACTION SECTION
+    ========================================= -->
     <section class="cta">
         <div class="container">
             <h2>Ready to Start Your Project?</h2>
@@ -278,16 +386,22 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ========================================
+         CONTACT SECTION
+    ========================================= -->
     <section class="contact" id="contact">
         <div class="container">
+            <!-- Section Header -->
             <div class="section-header">
                 <div class="section-label">GET IN TOUCH</div>
                 <h2 class="section-title">Contact Us</h2>
                 <p class="section-desc">We'd love to hear about your project</p>
             </div>
+            
             <div class="contact-grid">
+                <!-- Contact Information -->
                 <div class="contact-info">
+                    <!-- Email -->
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div>
@@ -295,6 +409,8 @@
                             <a href="mailto:bitnova.net@gmail.com">bitnova.net@gmail.com</a>
                         </div>
                     </div>
+                    
+                    <!-- Location -->
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
@@ -302,6 +418,8 @@
                             <p>Dhaka, Bangladesh</p>
                         </div>
                     </div>
+                    
+                    <!-- Social Links -->
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-link"></i></div>
                         <div>
@@ -316,8 +434,10 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Contact CTA Card -->
                 <div>
-                    <div class="hero-card">
+                    <div class="hero-card floating">
                         <h3 style="margin-bottom: 1rem;">Let's Discuss Your Project</h3>
                         <p style="color: var(--gray); margin-bottom: 1.5rem;">Whether you need a web application, data platform, or automation system, we're here to help bring your vision to life.</p>
                         <a href="mailto:bitnova.net@gmail.com" class="btn-primary" style="display: block; text-align: center;">Send us a Mail</a>
@@ -327,17 +447,22 @@
         </div>
     </section>
 
-   <!-- Footer -->
+    <!-- ========================================
+         FOOTER
+    ========================================= -->
     <footer class="footer">
         <div class="container">
             <div class="row align-items-center footer-content">
+                <!-- Footer Logo -->
                 <div class="col-lg-4 col-md-12 text-lg-start text-center mb-3 mb-lg-0">
-                    <div class="footer-logo">
+                    <div class="footer-logo d-flex flex-wrap justify-content-xl-end justify-content-center">
                         <img src="img/logo/bitnova-white.png" alt="Logo" class="img-fluid" style="max-width: 150px;">
                     </div>
                 </div>
+                
+                <!-- Footer Navigation Links -->
                 <div class="col-lg-8 col-md-12">
-                    <div class="footer-links d-flex flex-wrap justify-content-lg-end justify-content-center gap-3 gap-md-4">
+                    <div class="footer-links d-flex flex-wrap justify-content-xl-end justify-content-center gap-3 gap-md-4">
                         <a href="#home">Home</a>
                         <a href="#services">Services</a>
                         <a href="#about">About</a>
@@ -346,6 +471,8 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Copyright -->
             <div class="row">
                 <div class="col-12 text-center">
                     <p style="color: rgba(255,255,255,0.7); margin-top: 2rem;">&copy; 2025 BitNova. All rights reserved.</p>
@@ -354,213 +481,23 @@
         </div>
     </footer>
 
+    <a href="#home" id="goToTopBtn" class="go-to-top-btn"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- ========================================
+         JAVASCRIPT FILES
+    ========================================= -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Mobile menu toggle
-        function toggleMenu() {
-            const menu = document.getElementById('navMenu');
-            const toggle = document.querySelector('.menu-toggle');
-            menu.classList.toggle('active');
-            toggle.classList.toggle('active');
-        }
 
-        function closeMenu() {
-            const menu = document.getElementById('navMenu');
-            const toggle = document.querySelector('.menu-toggle');
-            menu.classList.remove('active');
-            toggle.classList.remove('active');
-        }
+    <!-- GSAP Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
-        // Navbar scroll effect
-        const navbar = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+    <!-- Custom JavaScript (must be AFTER GSAP) -->
+    <script src="js/script.js"></script>
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Counter Animation Function
-        function animateCounter(element, target, duration = 2000) {
-            const startTime = performance.now();
-            const startValue = 0;
-            
-            // Check if target contains special characters
-            const hasPlus = target.includes('+');
-            const hasPercent = target.includes('%');
-            const hasSlash = target.includes('/');
-            
-            // Extract the numeric value
-            let numericTarget;
-            if (hasSlash) {
-                // For "24/7", just display it directly without animation
-                element.textContent = target;
-                return;
-            } else {
-                numericTarget = parseInt(target.replace(/[^0-9]/g, ''));
-            }
-            
-            function update(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                // LINEAR animation - no easing, constant speed
-                const current = Math.floor(progress * numericTarget);
-                
-                // Format the display value
-                let displayValue = current;
-                if (hasPercent) {
-                    displayValue = current + '%';
-                } else if (hasPlus) {
-                    displayValue = current + '+';
-                }
-                
-                element.textContent = displayValue;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                } else {
-                    element.textContent = target; // Ensure final value is exact
-                }
-            }
-            
-            requestAnimationFrame(update);
-        }
-
-        // Flag to track if stats have been animated
-        let statsAnimated = false;
-
-        // Smooth scroll animations with consistent timing
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-
-        // Separate observer for stats section to animate all counters together
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !statsAnimated) {
-                    statsAnimated = true;
-                    
-                    // Animate all stat numbers at once
-                    const statNumbers = document.querySelectorAll('.stat-number');
-                    statNumbers.forEach(numberElement => {
-                        const targetValue = numberElement.getAttribute('data-target');
-                        animateCounter(numberElement, targetValue);
-                    });
-                }
-            });
-        }, {
-            threshold: 0.2,
-            rootMargin: '0px'
-        });
-
-        // Observe the stats section
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-
-        // Add animation classes
-        const animateElements = document.querySelectorAll('.service-card, .stat-item, .process-step, .project-card, .contact-item, .about-text, .about-image');
-        animateElements.forEach((el) => {
-            observer.observe(el);
-        });
-
-        // Add CSS animation styles
-        const style = document.createElement('style');
-        style.textContent = `
-            .service-card, .stat-item, .process-step, .project-card, .contact-item, .about-text, .about-image {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-                            transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .animate-in {
-                opacity: 1 !important;
-                transform: translateY(0) !important;
-            }
-
-            .hero-content {
-                animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .hero-card {
-                animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
-            }
-
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            @keyframes fadeInRight {
-                from {
-                    opacity: 0;
-                    transform: translateX(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
-
-            @keyframes floatUpDown {
-                0%, 100% {
-                    transform: translateY(0px);
-                }
-                50% {
-                    transform: translateY(-20px);
-                }
-            }
-            
-            .hero-card.floating {
-                animation: floatUpDown 3s ease-in-out infinite;
-            }
-
-            .service-card:hover, .stat-item:hover, .process-step:hover {
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Add floating animation to hero card after initial animation
-        setTimeout(() => {
-            const heroCard = document.querySelector('.hero-card');
-            if (heroCard) {
-                heroCard.classList.add('floating');
-            }
-        }, 1100);
-    </script>
+    <!-- Vanilla Tilt -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </body>
 </html>
